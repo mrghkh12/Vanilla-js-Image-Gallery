@@ -7,3 +7,45 @@
 body{
     background: #191919;
 }
+
+.gallery-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10% auto;
+}
+
+.gallery{
+    width: 900px;
+    display: flex;
+    overflow-x: scroll;
+}
+.gallery::-webkit-scrollbar{
+    display: none;
+}
+.gallery .row{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 20px;
+    padding: 10px;
+    flex: none;
+}
+
+.gallery .row img{
+    width: 100%;
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
+.gallery .row img:hover{
+    filter: grayscale(0);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.gallery-wrapper #backBtn,
+.gallery-wrapper #nextBtn{
+    width: 50px;
+    cursor: pointer;
+    margin: 40px;
+}
