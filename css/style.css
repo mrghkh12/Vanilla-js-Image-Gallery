@@ -11,12 +11,20 @@ body{
 .gallery{
     width: 900px;
     display: flex;
+    overflow-x: scroll;
 }
-
+.gallery::-webkit-scrollbar{
+    display: none;
+}
 .gallery .row{
     width: 100%;
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 20px;
     padding: 10px;
+    flex: none;
+}
+
+.gallery .row img{
+    width: 100%;
 }
