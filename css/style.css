@@ -34,6 +34,13 @@ body{
 
 .gallery .row img{
     width: 100%;
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
+.gallery .row img:hover{
+    filter: grayscale(0);
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .gallery-wrapper #backBtn,
