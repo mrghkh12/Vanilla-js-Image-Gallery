@@ -8,6 +8,13 @@ body{
     background: #191919;
 }
 
+.gallery-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10% auto;
+}
+
 .gallery{
     width: 900px;
     display: flex;
