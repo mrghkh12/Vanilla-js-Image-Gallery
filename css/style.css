@@ -35,3 +35,10 @@ body{
 .gallery .row img{
     width: 100%;
 }
+
+.gallery-wrapper #backBtn,
+.gallery-wrapper #nextBtn{
+    width: 50px;
+    cursor: pointer;
+    margin: 40px;
+}
