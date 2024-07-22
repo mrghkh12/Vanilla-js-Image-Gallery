@@ -7,3 +7,16 @@
 body{
     background: #191919;
 }
+
+.gallery{
+    width: 900px;
+    display: flex;
+}
+
+.gallery .row{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 20px;
+    padding: 10px;
+}
