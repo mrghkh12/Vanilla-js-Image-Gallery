@@ -12,22 +12,31 @@ galleryContainer.addEventListener('wheel' , e =>{
 })
 
 backBtn.addEventListener('click' , () => {
-    galleryContainer.style.scrollBehavior = 'smooth'
-    galleryContainer.scrollLeft -= 900
-
+    const rowImg = $.querySelector('.row')
+    console.log(galleryContainer.scrollLeft < 30);
+    if(galleryContainer.scrollLeft < 30){
+        galleryContainer.style.scrollBehavior = 'auto'
+        galleryContainer.scrollTo(rowImg.scrollWidth,0)
+        galleryContainer.style.scrollBehavior = 'smooth'
+        galleryContainer.scrollLeft -= 500
+    }else{
+         galleryContainer.style.scrollBehavior = 'smooth'
+        galleryContainer.scrollLeft -= 500
+    }    
 })
 
 nextBtn.addEventListener('click' , () => {
     galleryContainer.style.scrollBehavior = 'smooth'
     console.log(galleryContainer.scrollLeft);
-    galleryContainer.scrollLeft += 900
+    const rowImg = $.querySelector('.row')
+    galleryContainer.scrollLeft += rowImg.scrollWidth / 2
     scrollInfinity()
     console.log(galleryContainer.scrollLeft);
 })
 
 function scrollInfinity(){
+    const rowImg = $.querySelector('.row')
     if(galleryContainer.offsetWidth + galleryContainer.scrollLeft >= galleryContainer.scrollWidth - 100){
-        const rowImg = $.querySelector('.row')
         let clone = rowImg.cloneNode(true)
         let parent = rowImg.parentElement
         parent.appendChild(clone)    
@@ -37,11 +46,10 @@ function scrollInfinity(){
         }
     }
     if(galleryContainer.scrollLeft ==0){
-        const rowImg = $.querySelector('.row')
         let clone = rowImg.cloneNode(true)
         let parent = rowImg.parentElement
         parent.insertBefore(clone, parent.firstChild)  
-        parent.scrollTo(rowImg.scrollWidth,0)
+        parent.scrollTo(rowImg.scrollWidth ,0)
         parent.lastElementChild.remove()
         // galleryContainer.scrollLeft = galleryContainer.scrollWidth - rowImg.scrollWidth
     }
