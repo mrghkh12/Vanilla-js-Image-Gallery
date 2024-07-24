@@ -26,12 +26,24 @@ backBtn.addEventListener('click' , () => {
 })
 
 nextBtn.addEventListener('click' , () => {
-    galleryContainer.style.scrollBehavior = 'smooth'
-    console.log(galleryContainer.scrollLeft);
     const rowImg = $.querySelector('.row')
-    galleryContainer.scrollLeft += rowImg.scrollWidth / 2
-    scrollInfinity()
-    console.log(galleryContainer.scrollLeft);
+    console.log(galleryContainer.scrollLeft >= rowImg.scrollWidth);
+    if(galleryContainer.scrollLeft >= rowImg.scrollWidth){
+        let clone = rowImg.cloneNode(true)
+        let parent = rowImg.parentElement
+        parent.appendChild(clone)   
+        console.log(rowImg.scrollWidth , galleryContainer.scrollLeft); 
+        if(rowImg.scrollWidth < galleryContainer.scrollLeft){   
+            galleryContainer.style.scrollBehavior = 'auto'
+            galleryContainer.scrollLeft -= rowImg.scrollWidth
+            parent.children[0].remove()
+        }
+        galleryContainer.style.scrollBehavior = 'smooth'
+        galleryContainer.scrollLeft += 500
+    }else{
+         galleryContainer.style.scrollBehavior = 'smooth'
+        galleryContainer.scrollLeft += 500
+    }    
 })
 
 function scrollInfinity(){
