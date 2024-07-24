@@ -13,6 +13,7 @@ body{
     justify-content: center;
     align-items: center;
     margin: 10% auto;
+    position:relative;
 }
 
 .gallery{
@@ -49,4 +50,17 @@ body{
     width: 50px;
     cursor: pointer;
     margin: 40px;
+}
+@media screen and (max-width: 500px) {
+    .gallery-wrapper #backBtn,
+    .gallery-wrapper #nextBtn{
+        position: absolute;
+        bottom: -70px;
+        right: 0;
+        margin: 0;
+        margin: 0 15px;
+    }
+    .gallery-wrapper #backBtn{
+        left: 0;
+    }
 }
